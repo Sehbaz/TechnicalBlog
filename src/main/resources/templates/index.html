@@ -1,8 +1,10 @@
 <html xmlns:th="thymeleaf.org">
-<head>
-    <title>MVC Blog</title>
+<head th:replace="layout::site-head">
+<title>Spring MVC Blog</title>
 </head>
+<header th:replace="layout::logged-out">
 
+</header>
 <body>
     <h2>Welcome to blog application</h2>
 
