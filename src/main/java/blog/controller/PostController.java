@@ -25,5 +25,16 @@ public class PostController {
 		model.addAttribute("posts",posts);
 		return "posts";
 	}
+	@RequestMapping("/posts/create")
+	public String newPost(){
+		return "posts/create";
+	}
+@RequestMapping
+	public String createPost(Post newPost){
+
+		postService.createPost(newPost);
+		return "redirect:/posts";
+	}
+
 }
 
