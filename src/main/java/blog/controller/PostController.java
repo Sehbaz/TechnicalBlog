@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PostController {
@@ -18,9 +16,7 @@ public class PostController {
 
 	@RequestMapping("posts")
 	public  String getUserPosts(Model model){
-		//Getting single post from postservice
 		Post posts= postService.getOnePost();
-		//Providing the key using the model in the spring controller
 		model.addAttribute("posts",posts);
 		return "posts";
 	}

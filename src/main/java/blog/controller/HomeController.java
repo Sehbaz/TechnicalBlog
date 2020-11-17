@@ -16,9 +16,10 @@ public class HomeController {
 
 	@Autowired
 	private PostService postService;
+
 	@RequestMapping("/")
-	public String getAllPost(Model model){
-		List<Post> posts=new PostService().getAllPosts();
+	public String getAllPosts(Model model){
+		List<Post> posts= postService.getAllPosts();
 		model.addAttribute("posts",posts);
 		return "index";
 	}
