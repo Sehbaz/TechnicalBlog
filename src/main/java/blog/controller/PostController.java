@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -16,12 +18,9 @@ public class PostController {
 
 	@RequestMapping("posts")
 	public  String getUserPosts(Model model){
-
 		//Getting single post from postservice
-		ArrayList<Post> posts= postService.getOnePost();
-
+		Post posts= postService.getOnePost();
 		//Providing the key using the model in the spring controller
-
 		model.addAttribute("posts",posts);
 		return "posts";
 	}
@@ -29,7 +28,7 @@ public class PostController {
 	public String newPost(){
 		return "posts/create";
 	}
-@RequestMapping
+	@RequestMapping(value = "/posts/create", method = RequestMethod.POST)
 	public String createPost(Post newPost){
 
 		postService.createPost(newPost);

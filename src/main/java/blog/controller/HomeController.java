@@ -9,25 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class HomeController {
 
 	@Autowired
 	private PostService postService;
-
-
 	@RequestMapping("/")
 	public String getAllPost(Model model){
-		ArrayList<Post> posts=new PostService().getAllPosts();
-
-		//Providing the key using the model in the spring controller
-
+		List<Post> posts=new PostService().getAllPosts();
 		model.addAttribute("posts",posts);
-
 		return "index";
 	}
-
-
 
 }
